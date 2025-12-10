@@ -20,6 +20,7 @@ class _EditorPanelState extends State<EditorPanel> {
   late TextEditingController _titleController;
   late TextEditingController _artistController;
   late TextEditingController _albumController;
+  late TextEditingController _albumArtistController;
   late TextEditingController _yearController;
   late TextEditingController _genreController;
   late TextEditingController _trackController;
@@ -49,13 +50,14 @@ class _EditorPanelState extends State<EditorPanel> {
     _titleController = TextEditingController(text: tags?.title ?? '');
     _artistController = TextEditingController(text: tags?.trackArtist ?? '');
     _albumController = TextEditingController(text: tags?.album ?? '');
+    _albumArtistController = TextEditingController(text: tags?.albumArtist ?? '');
     _yearController = TextEditingController(text: tags?.year?.toString() ?? '');
     _genreController = TextEditingController(text: tags?.genre ?? '');
     _trackController = TextEditingController(text: tags?.trackNumber?.toString() ?? '');
     _discController = TextEditingController(text: tags?.discNumber?.toString() ?? '');
 
     final controllers = [
-      _filenameController, _titleController, _artistController, _albumController,
+      _filenameController, _titleController, _artistController, _albumController, _albumArtistController,
       _yearController, _genreController, _trackController, _discController
     ];
     for (final controller in controllers) {
@@ -71,9 +73,10 @@ class _EditorPanelState extends State<EditorPanel> {
 
     if (_filenameController.text != widget.file.filename) hasChanges = true;
     if (_titleController.text != (tags?.title ?? '')) hasChanges = true;
-    if (_artistController.text != (tags?.trackArtist ?? '')) hasChanges = true;
-    if (_albumController.text != (tags?.album ?? '')) hasChanges = true;
-    if (_yearController.text != (tags?.year?.toString() ?? '')) hasChanges = true;
+    if (widget.file.tags?.trackArtist != _artistController.text) hasChanges = true;
+    if (widget.file.tags?.album != _albumController.text) hasChanges = true;
+    if ((widget.file.tags?.albumArtist ?? '') != _albumArtistController.text) hasChanges = true;
+    if (widget.file.tags?.year?.toString() != _yearController.text) hasChanges = true;
     if (_genreController.text != (tags?.genre ?? '')) hasChanges = true;
     if (_trackController.text != (tags?.trackNumber?.toString() ?? '')) hasChanges = true;
     if (_discController.text != (tags?.discNumber?.toString() ?? '')) hasChanges = true;
@@ -91,6 +94,7 @@ class _EditorPanelState extends State<EditorPanel> {
     _titleController.dispose();
     _artistController.dispose();
     _albumController.dispose();
+    _albumArtistController.dispose();
     _yearController.dispose();
     _genreController.dispose();
     _trackController.dispose();
@@ -110,6 +114,7 @@ class _EditorPanelState extends State<EditorPanel> {
       title: _titleController.text,
       artist: _artistController.text,
       album: _albumController.text,
+      albumArtist: _albumArtistController.text,
       year: _yearController.text,
       genre: _genreController.text,
       trackNumber: _trackController.text,
@@ -200,6 +205,11 @@ class _EditorPanelState extends State<EditorPanel> {
           TextField(
             controller: _albumController,
             decoration: const InputDecoration(labelText: 'Album', border: OutlineInputBorder()),
+          ),
+          const SizedBox(height: 16),
+          TextField(
+            controller: _albumArtistController,
+            decoration: const InputDecoration(labelText: 'Album Artist', border: OutlineInputBorder()),
           ),
           const SizedBox(height: 16),
           Row(
