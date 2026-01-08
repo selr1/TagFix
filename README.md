@@ -1,4 +1,4 @@
-# TagFix for Android
+# TagFix
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![FOSS](https://img.shields.io/badge/FOSS-100%25-success)](https://github.com/k44yn3/tagfixandroid)
