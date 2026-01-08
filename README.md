@@ -6,8 +6,6 @@
 
 A powerful audio metadata editor for Android supporting FLAC, MP3, M4A, OGG, OPUS, WMA, and WAV formats.
 
-**[Desktop Releases](https://github.com/k44yn3/tagfix/releases)** (Windows/Linux) | **[Android Release](https://github.com/k44yn3/tagfixandroid/releases)**
-
 ## Features
 
 - **Metadata**: Edit Title, Artist, Album, Year, Genre, Track/Disc
@@ -47,7 +45,6 @@ flutter build apk --release
 
 ## Credits
 
-This is an Android port of the [desktop version](https://github.com/k44yn3/tagfix).
 - [Flutter](https://flutter.dev/)
 - [FFmpeg](https://www.ffmpeg.org/)
 - [MusicBrainz](https://musicbrainz.org/)
