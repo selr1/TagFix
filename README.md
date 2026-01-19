@@ -15,6 +15,9 @@ A powerful audio metadata editor for Android supporting FLAC, MP3, M4A, OGG, OPU
 - **Scanning**: Recursive directory processing
 - **Material You**: Modern dynamic theming with dark mode
 
+## Screenshots
+![ss](1.png)
+
 ## Requirements
 
 **Minimum Android Version:** Android 7.0 (API 24)
